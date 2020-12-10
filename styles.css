@@ -1,0 +1,13 @@
+#map {
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+}
+
+body {
+  background-color: #008457;
+}
+
+h1 {
+  text-align: center;
+}
