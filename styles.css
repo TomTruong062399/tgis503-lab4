@@ -24,9 +24,54 @@ body {
   background-color: #008457;
 }
 
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+#text p {
+  font-weight: bold;
+  text-align: center;
+}
+
 h1 {
   text-align: center;
   font-family: 'Alfa Slab One', cursive;
+  font-weight: normal;
+  color: #FFD520;
+}
+
+.wrapper {
+  display: flex;
+}
+
+#left img {
+  padding-right: 375px;
+  width: 500px;
+  height: 300px;
+}
+
+#right img {
+  width: 500px;
+  height: 300px;
+}
+
+#center img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 500px;
+}
+
+figcaption {
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #FFD520;
+}
+
+#center figcaption {
+  text-align: center;
+  padding-bottom: 50px;
 }
 
 .tabBar {
@@ -118,23 +163,28 @@ h1 {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
 }
+
 .info h4 {
     margin: 0 0 5px;
     color: #808080;
 }
+
 .areaName {
     font-size: 17px;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .faded {
     opacity: 0.4;
 }
+
 .areaLabel {
     float: left;
     width: 100%;
     font-family: 'Roboto', sans-serif;
 }
+
 .areaValue {
     float: left;
     width: 70%;

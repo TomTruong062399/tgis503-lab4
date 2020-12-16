@@ -16,6 +16,55 @@
 
     <h1>Urbanization in Washington State</h1>
 
+    <div class="wrapper">
+      <div id="left">
+        <figure>
+          <img src="images/left.jpg" alt="Washington State Industries">
+          <figcaption><a href="http://choosewashingtonstate.com/i-need-help-with/site-selection/innovation-partnership-zones/">
+          Washington State Department of Commerce</a></figcaption>
+        </figure>
+      </div>
+
+      <div id="right">
+        <figure>
+          <img src="images/right.jpg" alt= "Washington Home Prices">
+          <figcaption><a href="https://www.seattletimes.com/business/home-prices-rising-faster-in-washington-than-in-any-other-state/">
+          The Seattle Times</a></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div id="text">
+    <p>The state of Washington has maintained being a fast growing state by
+    <a href="https://ofm.wa.gov/about/news/2017/06/population-growth-washington-remains-strong">
+    population growth</a> over the years. From the 21st century alone, the state has seen a growth
+    of almost <a href= "https://www.ofm.wa.gov/sites/default/files/public/dataresearch/pop/april1/ofm_april1_poptrends.pdf">
+    2 million people</a> (p.8), bringing the current population estimate to be about 7.6 million. Following the urbanization
+    trends in America, this phenomenon has made new home in Washington's 81 identified urban clusters/urbanized areas.</p>
+
+    <p>Besides the outlier, <a href="https://en.wikipedia.org/wiki/Seattle_metropolitan_area">
+    the Seattle metropolitan area</a> <i>(2.7+ million people since 2000!)</i>, other
+    urban centers has grown over the years (Spokane, Portland metro, the Tri-Cities) <i>(left map)</i>.
+    This correlates to the expansion of housing units built in those areas over the years to meet the
+    growing population <i>(right map)</i>. Some factors that contribute to this the development of business
+    districts across the state <i>(left image)</i>, that attract companies from various fields
+    (<a href="https://www.usnews.com/news/best-states/rankings/economy/employment">which means more jobs!</a>).
+    Also, the net migration of Washington State has been
+    <a href="https://www.ofm.wa.gov/washington-data-research/statewide-data/washington-trends/population-changes/population-change-natural-increase-and-net-migration">
+    steadily increasing in recent years</a>, due to more favorable economic climates, like compared to California. (which resulted in
+    <a href="https://www.warealtor.org/docs/default-source/ga-resources/migration_wa.pdf?sfvrsn=4">mass arrivals</a> from there too).
+    This has resulted in the housing boom in the state, as increase demand has resulted in more housing, that is hardly affordable <i>(right image)</i>.</p>
+    </div>
+
+
+    <div id="center">
+      <figure>
+        <img src="images/center.png" alt="GDP of US States">
+        <figcaption> <a href="https://www.stockingblue.com/article/93/us-states-ranked-by-gross-domestic-product/">
+        Stocking Blue</a></figcaption>
+      </figure>
+    </div>
+
     <div class="popTabs">
       <div class="tabBar">
         <div id="tab1" class="tabItem selected">2000</div>
@@ -71,11 +120,11 @@
     });
 
     var basemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a> | <a href="https://geo.wa.gov/datasets/wa-ofm::saep-urban-areas">SAEP Urban Areas - Washington State Open Data</a>',
       }).addTo(popmap);
 
     var basemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a> | <a href="https://geo.wa.gov/datasets/wa-ofm::saep-urban-areas">SAEP Urban Areas - Washington State Open Data</a>',
       }).addTo(housmap);
 
     var geojson;
@@ -94,34 +143,32 @@
       }).addTo(housmap);
     });
 
-    var colors = chroma.scale('Reds').colors(13);
-    var colors2 = chroma.scale('Reds').colors(13);
+    var colors = chroma.scale('Reds').colors(12);
+    var colors2 = chroma.scale('Reds').colors(12);
 
     function setColor(pop) {
       var id = 0;
       if (pop > 500000) {
-        id = 12;
-      } else if (pop > 400000 && pop <= 500000) {
         id = 11;
-      } else if (pop > 300000 && pop <= 400000) {
+      } else if (pop > 400000 && pop <= 410000) {
         id = 10;
-      } else if (pop > 200000 && pop <= 300000) {
+      } else if (pop > 300000 && pop <= 400000) {
         id = 9;
-      } else if (pop > 100000 && pop <= 200000) {
+      } else if (pop > 200000 && pop <= 300000) {
         id = 8;
-      } else if (pop > 75000 && pop <= 100000) {
+      } else if (pop > 100000 && pop <= 200000) {
         id = 7;
-      } else if (pop > 50000 && pop <= 75000) {
+      } else if (pop > 75000 && pop <= 100000) {
         id = 6;
-      } else if (pop > 25000 && pop <= 50000) {
+      } else if (pop > 50000 && pop <= 75000) {
         id = 5;
-      } else if (pop > 10000 && pop <= 25000) {
+      } else if (pop > 25000 && pop <= 50000) {
         id = 4;
-      } else if (pop > 5000 && pop <= 7500) {
+      } else if (pop > 10000 && pop <= 25000) {
         id = 3;
-      } else if (pop > 2500 && pop <= 5000) {
+      } else if (pop > 5000 && pop <= 10000) {
         id = 2;
-      } else if (pop > 1000 && pop <= 2500) {
+      } else if (pop > 1000 && pop <= 5000) {
         id = 1;
       } else {
         id = 0;
@@ -131,27 +178,27 @@
 
     function setColor(unit) {
       var id = 0;
-      if (unit > 150000) {
-        id = 12;
-      } else if (unit > 125000 && unit <= 150000) {
+      if (unit > 200000) {
+        id = 11;
+      } else if (unit > 175000 && unit <= 200000) {
         id = 10;
-      } else if (unit > 100000 && unit <= 125000) {
+      } else if (unit > 150000 && unit <= 175000) {
         id = 9;
-      } else if (unit > 75000 && unit <= 100000) {
+      } else if (unit > 125000 && unit <= 150000) {
         id = 8;
-      } else if (unit > 50000 && unit <= 75000) {
+      } else if (unit > 100000 && unit <= 125000) {
         id = 7;
-      } else if (unit > 25000 && unit <= 50000) {
+      } else if (unit > 75000 && unit <= 100000) {
         id = 6;
-      } else if (unit > 10000 && unit <= 25000) {
+      } else if (unit > 50000 && unit <= 75000) {
         id = 5;
-      } else if (unit > 7500 && unit <= 10000) {
+      } else if (unit > 25000 && unit <= 50000) {
         id = 4;
-      } else if (unit > 5000 && unit <= 7500) {
+      } else if (unit > 10000 && unit <= 25000) {
         id = 3;
-      } else if (unit > 2500 && unit <= 5000) {
+      } else if (unit > 5000 && unit <= 10000) {
         id = 2;
-      } else if (unit > 1000 && unit <= 2500) {
+      } else if (unit > 1000 && unit <= 5000) {
         id = 1;
       } else {
         id = 0;
@@ -299,18 +346,17 @@
     legend.onAdd = function() {
       var div = L.DomUtil.create('div', 'legend');
       div.innerHTML += '<b>Total Population</b><br>';
-      div.innerHTML += '<i style="background: ' + '#000000' + ';"></i><p>500,000+</p>';
-      div.innerHTML += '<i style="background: ' + colors[12] + ';"></i><p>400,000-499,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[11] + ';"></i><p>300,000-399,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[10] + ';"></i><p>200,000-299,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[9] + ';"></i><p>100,000-199,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[7] + ';"></i><p>75,000-99,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[6] + ';"></i><p>50,000-74,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[5] + ';"></i><p>25,000-49,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[4] + ';"></i><p>10,000-24,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[3] + ';"></i><p>5,000-9,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[2] + ';"></i><p>2,500-4,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[1] + ';"></i><p>1,000-2,499</p>';
+      div.innerHTML += '<i style="background: ' + colors[11] + ';"></i><p>500,000+</p>';
+      div.innerHTML += '<i style="background: ' + colors[10] + ';"></i><p>400,000-499,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[9] + ';"></i><p>300,000-399,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[8] + ';"></i><p>200,000-299,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[7] + ';"></i><p>100,000-199,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[6] + ';"></i><p>75,000-99,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[5] + ';"></i><p>50,000-74,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[4] + ';"></i><p>25,000-49,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[3] + ';"></i><p>10,000-24,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[2] + ';"></i><p>5,000-9,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[1] + ';"></i><p>1,000-4,999</p>';
       div.innerHTML += '<i style="background: ' + colors[0] + ';"></i><p>0-999</p>';
       return div;
     };
@@ -324,18 +370,17 @@
     legend2.onAdd = function() {
       var div = L.DomUtil.create('div', 'legend');
       div.innerHTML += '<b>Total Housing Units</b><br>';
-      div.innerHTML += '<i style="background: ' + '#000000' + ';"></i><p>200,000+</p>';
-      div.innerHTML += '<i style="background: ' + colors[12] + ';"></i><p>150,000-199,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[11] + ';"></i><p>125,000-149,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[10] + ';"></i><p>100,000-124,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[9] + ';"></i><p>75,000-99,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[7] + ';"></i><p>50,000-74,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[6] + ';"></i><p>25,000-49,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[5] + ';"></i><p>10,000-24,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[4] + ';"></i><p>5,000-9,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[3] + ';"></i><p>5,000-9,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[2] + ';"></i><p>2,500-4,999</p>';
-      div.innerHTML += '<i style="background: ' + colors[1] + ';"></i><p>1,000-2,499</p>';
+      div.innerHTML += '<i style="background: ' + colors[11] + ';"></i><p>200,000+</p>';
+      div.innerHTML += '<i style="background: ' + colors[10] + ';"></i><p>175,000-199,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[9] + ';"></i><p>150,000-174,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[8] + ';"></i><p>125,000-149,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[7] + ';"></i><p>100,000-124,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[6] + ';"></i><p>75,000-99,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[5] + ';"></i><p>50,000-74,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[4] + ';"></i><p>25,000-49,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[3] + ';"></i><p>10,000-24,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[2] + ';"></i><p>5,000-9,999</p>';
+      div.innerHTML += '<i style="background: ' + colors[1] + ';"></i><p>1,000-4,999</p>';
       div.innerHTML += '<i style="background: ' + colors[0] + ';"></i><p>0-999</p>';
       return div;
     };
